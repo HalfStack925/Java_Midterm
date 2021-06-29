@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Main{
 
 
-    public static final ArrayList<String> Administration = new ArrayList<>();
-    public static final ArrayList<String> Faculty = new ArrayList<>();
-    public static final ArrayList<String> Staff = new ArrayList<>();
-    public static final ArrayList<String> Student = new ArrayList<>();
+    public static  ArrayList<String> Administration = new ArrayList<>();
+    public static  ArrayList<String> Faculty = new ArrayList<>();
+    public static  ArrayList<String> Staff = new ArrayList<>();
+    public static  ArrayList<String> Student = new ArrayList<>();
 
-    public static  Person newPerson = new Person();
+    public static Person newPerson;
     public static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -268,106 +268,6 @@ public class Main{
         String courses;
         public Person() {
         }
-
-//        public String getfName() {
-//            return fName;
-//        }
-//
-//        public void setfName(String fName) {
-//            this.fName = fName;
-//        }
-//
-//        public String getmName() {
-//            return mName;
-//        }
-//
-//        public void setmName(String mName) {
-//            this.mName = mName;
-//        }
-//
-//        public String getMiddlel() {
-//            return middlel;
-//        }
-//
-//        public void setMiddlel(String middlel) {
-//            this.middlel = middlel;
-//        }
-//
-//        public String getLname() {
-//            return lname;
-//        }
-//
-//        public void setLname(String lname) {
-//            this.lname = lname;
-//        }
-//
-//        public String getDOB() {
-//            return DOB;
-//        }
-//
-//        public void setDOB(String DOB) {
-//            this.DOB = DOB;
-//        }
-//
-//        public String getSSN() {
-//            return SSN;
-//        }
-//
-//        public void setSSN(String SSN) {
-//            this.SSN = SSN;
-//        }
-//
-//        public String getPhone() {
-//            return phone;
-//        }
-//
-//        public void setPhone(String phone) {
-//            this.phone = phone;
-//        }
-//
-//        public void setAddress(String address) {
-//            this.address = address;
-//        }
-//
-//        public String getAllergies() {
-//            return allergies;
-//        }
-//
-//        public void setAllergies(String allergies) {
-//            this.allergies = allergies;
-//        }
-//
-//        public String getType() {
-//            return type;
-//        }
-//
-//        public void setType(String type) {
-//            this.type = type;
-//        }
-//
-//        public String getCourses() {
-//            return courses;
-//        }
-//
-//        public void setCourses(String courses) {
-//            this.courses = courses;
-//        }
-
-
-//        public Person(String fName, String mName, String middlel, String lname, String DOB, String SSN, String phone,
-//                      String address, String allergies, String type, String courses) {
-//            this.fName = fName;
-//            this.mName = mName;
-//            this.middlel = middlel;
-//            this.lname = lname;
-//            this.DOB = DOB;
-//            this.SSN = SSN;
-//            this.phone = phone;
-//            this.address = address;
-//            this.allergies = allergies;
-//            this.type = type;
-//            this.courses = courses;
-//        }
 
     }
 
