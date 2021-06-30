@@ -10,7 +10,7 @@ public class Main{
     public static  ArrayList<String> Staff = new ArrayList<>();
     public static  ArrayList<String> Student = new ArrayList<>();
 
-    public static Person newPerson;
+//    public static Person newPerson;
     public static final Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -31,9 +31,9 @@ public class Main{
 
         if(selected == 1)
             AddPeople();
-        else if(selected == 2)
-            SearchPeople();
-        else ExitProgram();
+//        else if(selected == 2)
+//            SearchPeople();
+//        else ExitProgram();
     }
 
 
@@ -42,43 +42,57 @@ public class Main{
 
 
         int numOfPeopleToAdd = input.nextInt();
+        input.nextLine();
+
         while (numOfPeopleToAdd > 0)
         {
-            newPerson = new Person();
+            String fName, mName, lName, DOB, SSN, phone, address, allergies, type, courses;
+
             System.out.println("Please Enter First Name:");
-            //for some reason first name kept getting skipped
-            //added code in twice and it fixed it?????
-            newPerson.fName = input.nextLine();
-            newPerson.fName = input.nextLine();
+            fName = "First Name: " + input.nextLine();
+
             System.out.println("Please Enter Middle Name:");
-            newPerson.mName = input.nextLine();
+            mName = "Middle Name: " + input.nextLine();
+
             System.out.println("Please Enter Last Name:");
-            newPerson.lname= input.nextLine();
+            lName = "Last Name: " + input.nextLine();
+
             System.out.println("Please Enter Date of Birth:");
-            newPerson.DOB = input.nextLine();
+            DOB = "Date of Birth: " + input.nextLine();
+
             System.out.println("Please Enter Social Security Number:");
-            newPerson.SSN = input.nextLine();
+            SSN = "Social Security Number: " + input.nextLine();
+
             System.out.println("Please Enter Phone Number:");
-            newPerson.phone = input.nextLine();
+            phone = "Phone Number: " + input.nextLine();
+
             System.out.println("Please Enter Address:");
-            newPerson.address = input.nextLine();
+            address = "Address: " + input.nextLine();
+
             System.out.println("Please Enter Any Allergies:");
-            newPerson.allergies = input.nextLine();
+            allergies = "Allergies: " + input.nextLine();
+
+            type="";
+            courses = "";
+
             System.out.println("""
                     Please Select Type:
                     1 For Administration 
                     2 For Staff
                     3 For Faculty
                     4 For Student""");
-            int cateogory = input.nextInt();
-            if(cateogory == 1)
+
+            int category = input.nextInt();
+            input.nextLine();
+            if(category == 1)
             {
-                newPerson.type ="Administration";
-                newPerson.courses ="NA";
+                type = "Type: Administration";
+                courses = "Courses: NA";
+                Person newPerson = new Person(fName,mName,lName,DOB,SSN,phone,address,allergies,type,courses);
 
                 Administration.add(newPerson.fName);
+                Administration.add(newPerson.lName);
                 Administration.add(newPerson.mName);
-                Administration.add(newPerson.lname);
                 Administration.add(newPerson.DOB);
                 Administration.add(newPerson.SSN);
                 Administration.add(newPerson.phone);
@@ -87,17 +101,16 @@ public class Main{
                 Administration.add(newPerson.type);
                 Administration.add(newPerson.courses);
 
-                System.out.println("New Administrator Successfully Added");
-
             }
-            else if(cateogory == 2)
+            else if(category == 2)
             {
-               newPerson.type ="Staff";
-               newPerson.courses ="NA";
+                type = "Type: Staff";
+                courses = "Courses: NA";
 
+                Person newPerson = new Person(fName,mName,lName,DOB,SSN,phone,address,allergies,type,courses);
                 Staff.add(newPerson.fName);
+                Staff.add(newPerson.lName);
                 Staff.add(newPerson.mName);
-                Staff.add(newPerson.lname);
                 Staff.add(newPerson.DOB);
                 Staff.add(newPerson.SSN);
                 Staff.add(newPerson.phone);
@@ -106,20 +119,21 @@ public class Main{
                 Staff.add(newPerson.type);
                 Staff.add(newPerson.courses);
 
-                System.out.println("New Staff Successfully Added");
-
-
             }
-            else if(cateogory == 3)
+
+
+            else if(category == 3)
             {
-                newPerson.type ="Faculty";
-                System.out.println("Please Enter Classes Taught:");
-                newPerson.courses = input.nextLine();
-                newPerson.courses = input.nextLine();
+                type = "Type: Faculty";
+                System.out.println("Please Enter Classes Taught");
+
+                courses = "Courses: " +  input.nextLine();
+
+                Person newPerson = new Person(fName,mName,lName,DOB,SSN,phone,address,allergies,type,courses);
 
                 Faculty.add(newPerson.fName);
+                Faculty.add(newPerson.lName);
                 Faculty.add(newPerson.mName);
-                Faculty.add(newPerson.lname);
                 Faculty.add(newPerson.DOB);
                 Faculty.add(newPerson.SSN);
                 Faculty.add(newPerson.phone);
@@ -127,21 +141,19 @@ public class Main{
                 Faculty.add(newPerson.allergies);
                 Faculty.add(newPerson.type);
                 Faculty.add(newPerson.courses);
-
-                System.out.println("New Faculty Successfully Added");
-
-
             }
-            else if(cateogory == 4)
+            else if(category == 4)
             {
-                newPerson.type = "Student";
+                type = "Type: Student";
                 System.out.println("Please Enter Classes Taken");
-                newPerson.courses = input.nextLine();
-                newPerson.courses = input.nextLine();
+
+                courses = "Courses: "+ input.nextLine();
+
+                Person newPerson = new Person(fName,mName,lName,DOB,SSN,phone,address,allergies,type,courses);
 
                 Student.add(newPerson.fName);
+                Student.add(newPerson.lName);
                 Student.add(newPerson.mName);
-                Student.add(newPerson.lname);
                 Student.add(newPerson.DOB);
                 Student.add(newPerson.SSN);
                 Student.add(newPerson.phone);
@@ -149,116 +161,132 @@ public class Main{
                 Student.add(newPerson.allergies);
                 Student.add(newPerson.type);
                 Student.add(newPerson.courses);
-
-                System.out.println("New Student Successfully Added");
-
-
             }
+
 
             numOfPeopleToAdd --;
-
-
         }
-        MainMenu();
 
-    }
-
-    public static void SearchPeople(){
-
-        System.out.println("""
-                Please Enter\s
-                1 To Search Administration
-                2 TO Search Staff
-                3 To Search Faculty
-                4 To Search Student""");
-
-        int selected = input.nextInt();
-        String search;
-        if(selected == 1){
-            System.out.println("Enter Search Keyword");
-            search = input.nextLine();
-            search = input.nextLine();
-            if(Administration.contains(search))
+            for(String person : Administration)
             {
-                SearchResult();
-                MainMenu();
+                System.out.println(person);
             }
-            else
-                InvalidSearch();
-        }
-        if(selected == 2){
-            System.out.println("Enter Search Keyword");
-            search = input.next();
-            if(Staff.contains(search))
+
+            for (String person : Staff)
             {
-                SearchResult();
-                MainMenu();
+                System.out.println(person);
             }
-            else
-                InvalidSearch();
-        }
-        if(selected == 3){
-            System.out.println("Enter Search Keyword");
-            search = input.next();
-            if(Faculty.contains(search))
+
+            for (String person : Faculty)
             {
-                SearchResult();
-                MainMenu();
+                System.out.println(person);
             }
-            else
-                InvalidSearch();
-        }
-        if(selected == 4){
-            System.out.println("Enter Search Keyword");
-            search = input.next();
-            if(Student.contains(search))
+
+            for (String person : Student)
             {
-                SearchResult();
-                MainMenu();
+                System.out.println(person);
             }
-            else
-                InvalidSearch();
-        }
 
     }
 
-    public static void ExitProgram(){
-        System.exit(0);
-    }
-
-    public static void SearchResult(){
-        System.out.println("Search Result: \n"
-                + newPerson.fName +"\n"
-                + newPerson.mName +"\n"
-                + newPerson.lname +"\n"
-                + newPerson.DOB +"\n"
-                + newPerson.SSN +"\n"
-                + newPerson.phone +"\n"
-                + newPerson.address +"\n"
-                + newPerson.allergies +"\n"
-                + newPerson.type +"\n"
-                + newPerson.courses +"\n");
-    }
-
-
-    public static void InvalidSearch()
-    {
-        System.out.println("Sorry We Couldn't Fnd That");
-        System.out.println("Would You Like to Search Again?\n" +
-                "y or n");
-        String response = input.next();
-
-        if(response.equals("Y") || response.equals("y"))
-            SearchPeople();
-        else
-            MainMenu();
-    }
+//    public static void SearchPeople(){
+//
+//        System.out.println("""
+//                Please Enter\s
+//                1 To Search Administration
+//                2 TO Search Staff
+//                3 To Search Faculty
+//                4 To Search Student""");
+//
+//        int selected = input.nextInt();
+//        String search;
+//        if(selected == 1){
+//            System.out.println("Enter Search Keyword");
+//            search = input.nextLine();
+//            search = input.nextLine();
+//            if(Administration.contains(search))
+//            {
+//                SearchResult();
+//                MainMenu();
+//            }
+//            else
+//                InvalidSearch();
+//        }
+//        if(selected == 2){
+//            System.out.println("Enter Search Keyword");
+//            search = input.next();
+//            if(Staff.contains(search))
+//            {
+//                SearchResult();
+//                MainMenu();
+//            }
+//            else
+//                InvalidSearch();
+//        }
+//        if(selected == 3){
+//            System.out.println("Enter Search Keyword");
+//            search = input.next();
+//            if(Faculty.contains(search))
+//            {
+//                SearchResult();
+//                MainMenu();
+//            }
+//            else
+//                InvalidSearch();
+//        }
+//        if(selected == 4){
+//            System.out.println("Enter Search Keyword");
+//            search = input.next();
+//            if(Student.contains(search))
+//            {
+//                SearchResult();
+//                MainMenu();
+//            }
+//            else
+//                InvalidSearch();
+//        }
+//
+//    }
+//
+//    public static void ExitProgram(){
+//        System.exit(0);
+//    }
+//
+//    public static void SearchResult(){
+//        System.out.println("Search Result: \n"
+//                + newPerson.fName +"\n"
+//                + newPerson.mName +"\n"
+//                + newPerson.lname +"\n"
+//                + newPerson.DOB +"\n"
+//                + newPerson.SSN +"\n"
+//                + newPerson.phone +"\n"
+//                + newPerson.address +"\n"
+//                + newPerson.allergies +"\n"
+//                + newPerson.type +"\n"
+//                + newPerson.courses +"\n");
+//    }
+//
+//
+//    public static void InvalidSearch()
+//    {
+//        System.out.println("Sorry We Couldn't Fnd That");
+//        System.out.println("Would You Like to Search Again?\n" +
+//                "y or n");
+//        String response = input.next();
+//
+//        if(response.equals("Y") || response.equals("y"))
+//            SearchPeople();
+//        else
+//            MainMenu();
+//    }
     public static class Person  {
+
+
 
         String fName;
         String mName;
-        String middlel;
-        String lname;
+        //String middlel;
+        String lName;
         String DOB;
         String SSN;
         String phone;
@@ -266,7 +294,21 @@ public class Main{
         String allergies;
         String type;
         String courses;
-        public Person() {
+
+    public Person(String fName, String mName, String lName, String DOB, String SSN, String phone, String address, String allergies, String type, String courses) {
+        this.fName = fName;
+        this.mName = mName;
+        this.lName = lName;
+        this.DOB = DOB;
+        this.SSN = SSN;
+        this.phone = phone;
+        this.address = address;
+        this.allergies = allergies;
+        this.type = type;
+        this.courses = courses;
+    }
+
+    public Person() {
         }
 
     }
