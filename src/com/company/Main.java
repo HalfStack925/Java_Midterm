@@ -195,10 +195,10 @@ public class Main{
         try {
             System.out.println("""
                 Please Enter\s
-                1 To Search Administration
-                2 To Search Staff
-                3 To Search Faculty
-                4 To Search Student""");
+                1 To Search Administration Database
+                2 To Search Staff Database
+                3 To Search Faculty Database
+                4 To Search Student Database""");
 
             int selected = input.nextInt();
             input.nextLine();
@@ -207,31 +207,35 @@ public class Main{
             {
                 for(String person : Administration)
                     System.out.println(person);
+                System.out.println(" ");
 
             }
             if(selected == 2 )
             {
                 for(String person : Staff)
                     System.out.println(person);
+                System.out.println(" ");
 
             }
             if(selected == 3 )
             {
                 for(String person : Faculty)
                     System.out.println(person);
+                System.out.println(" ");
 
             }
             if(selected == 4 )
             {
                 for(String person : Student)
                     System.out.println(person);
+                System.out.println(" ");
 
             }
         }catch (Exception e)
         {
             System.out.println("Something went wrong");
         }
-        System.out.println(" ");
+
         MainMenu();
 
     }
