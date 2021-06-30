@@ -191,56 +191,55 @@ public class Main{
     }
 
     public static void SearchPeople(){
-
-        System.out.println("""
+        //loops through selected Arraylist
+        try {
+            System.out.println("""
                 Please Enter\s
                 1 To Search Administration
                 2 To Search Staff
                 3 To Search Faculty
                 4 To Search Student""");
 
-        int selected = input.nextInt();
-        input.nextLine();
+            int selected = input.nextInt();
+            input.nextLine();
 
-        if(selected == 1 )
+            if(selected == 1 )
+            {
+                for(String person : Administration)
+                    System.out.println(person);
+
+            }
+            if(selected == 2 )
+            {
+                for(String person : Staff)
+                    System.out.println(person);
+
+            }
+            if(selected == 3 )
+            {
+                for(String person : Faculty)
+                    System.out.println(person);
+
+            }
+            if(selected == 4 )
+            {
+                for(String person : Student)
+                    System.out.println(person);
+
+            }
+        }catch (Exception e)
         {
-            System.out.println("Enter Search Keyword");
-            String search = input.nextLine();
-
-            boolean result = Administration.contains(search);
-            if(result)
-                System.out.println(search);
-            else
-                InvalidSearch();
+            System.out.println("Something went wrong");
         }
-
-
+        System.out.println(" ");
         MainMenu();
+
     }
 
     public static void ExitProgram(){
         System.exit(0);
     }
 
-
-    public static void InvalidSearch()
-    {
-       try
-       {
-           System.out.println("Sorry We Couldn't Fnd That");
-           System.out.println("Would You Like to Search Again?\n" +
-                   "y or n");
-           String response = input.next();
-
-           if(response.equals("Y") || response.equals("y"))
-               SearchPeople();
-           else
-               MainMenu();
-       }catch (Exception e)
-       {
-           System.out.println("Something went wrong");
-       }
-    }
 
     //Person Class
     public static class Person  {
